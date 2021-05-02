@@ -1,0 +1,9 @@
+import numpy as np
+import tensorflow as tf
+import tensorflow_hub as hub
+from json import loads
+
+reviewArray = tf.convert_to_tensor(np.array(["Amazing helped me out greatly", "Awful do not buy", "Did not work I bought this off of the website and when it came it did not work as intended", "It was okay a bit broken but still works very well", "Worked as advertised"]))
+coolModel = tf.keras.models.load_model("gs://deeplearner55/Models/testRNN5", compile=False)
+predictions = coolModel.predict(reviewArray)
+print(predictions)
